@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -47,7 +49,15 @@ public class User implements UserDetails {
 	
 	@OneToMany(mappedBy = "user")
 	private Set<Participant> participants;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_ROLE")
+	private Role role;
 
+	public User() {
+		
+	}
+	
 	public User(Integer id, String username, @NotNull String password, @NotNull String lastName,
 			@NotNull String firstName, @NotNull String email, @NotNull String phone) {
 		super();
@@ -148,6 +158,13 @@ public class User implements UserDetails {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", lastName=" + lastName
+				+ ", firstName=" + firstName + ", email=" + email + ", phone=" + phone + ", participants="
+				+ participants + ", role=" + role + "]";
 	}
 
 }

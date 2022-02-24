@@ -39,9 +39,13 @@ public class Carshare {
 
 	@Column(name = "FREE_SPACES")
 	private Integer nbSpaces;
-	
+
 	@OneToMany(mappedBy = "carshare")
 	private Set<Participant> participants;
+
+	public Carshare() {
+
+	}
 
 	public Carshare(Integer id, Date startTime, Date arrivalTime, String fromAdress, String toAdress,
 			Integer nbSpaces) {
@@ -100,6 +104,13 @@ public class Carshare {
 
 	public void setNbSpace(Integer nbSpaces) {
 		this.nbSpaces = nbSpaces;
+	}
+
+	@Override
+	public String toString() {
+		return "Carshare [id=" + id + ", startTime=" + startTime + ", arrivalTime=" + arrivalTime + ", fromAdress="
+				+ fromAdress + ", toAdress=" + toAdress + ", nbSpaces=" + nbSpaces + ", participants=" + participants
+				+ "]";
 	}
 
 }

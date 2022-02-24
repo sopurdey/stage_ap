@@ -1,11 +1,15 @@
 package fr.diginamic.stage_ap.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class Role {
@@ -17,6 +21,9 @@ public class Role {
 	@NotNull
 	@Column(name="LABEL")
 	private String label;
+	
+	@OneToMany(mappedBy="role")
+	private List<User> users;
 
 	public Role() {
 
@@ -42,6 +49,11 @@ public class Role {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", label=" + label + "]";
 	}
 
 }

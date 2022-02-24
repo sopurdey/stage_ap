@@ -37,6 +37,10 @@ public class Vehicle {
 	@Column(name = "WITH_DRIVER")
 	private boolean withDriver;
 
+	public Vehicle() {
+		
+	}
+	
 	public Vehicle(Integer id, String numberPlate, String brand, String model, String category, Integer nbSeats,
 			String status, String photoUrl, boolean withDriver) {
 		super();
@@ -123,6 +127,11 @@ public class Vehicle {
 		this.withDriver = withDriver;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", numberPlate=" + numberPlate + ", brand=" + brand + ", model=" + model
+				+ ", category=" + category + ", nbSeats=" + nbSeats + ", status=" + status + ", photoUrl=" + photoUrl
+				+ ", withDriver=" + withDriver + "]";
+	}
 	
 }
