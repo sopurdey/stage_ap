@@ -1,6 +1,6 @@
 package fr.diginamic.stage_ap.model;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public class Role {
 	private String label;
 	
 	@OneToMany(mappedBy="role")
-	private List<User> users;
+	private Set<User> users;
 
 	public Role() {
 

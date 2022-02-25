@@ -32,10 +32,10 @@ public class Carshare {
 	private Date arrivalTime;
 
 	@Column(name = "START_ADDRESS")
-	private String fromAdress;
+	private String fromAddress;
 
 	@Column(name = "DESTINATION")
-	private String toAdress;
+	private String toAddress;
 
 	@Column(name = "FREE_SPACES")
 	private Integer nbSpaces;
@@ -47,14 +47,14 @@ public class Carshare {
 
 	}
 
-	public Carshare(Integer id, Date startTime, Date arrivalTime, String fromAdress, String toAdress,
+	public Carshare(Integer id, Date startTime, Date arrivalTime, String fromAddress, String toAddress,
 			Integer nbSpaces) {
 		super();
 		this.id = id;
 		this.startTime = startTime;
 		this.arrivalTime = arrivalTime;
-		this.fromAdress = fromAdress;
-		this.toAdress = toAdress;
+		this.fromAddress = fromAddress;
+		this.toAddress = toAddress;
 		this.nbSpaces = nbSpaces;
 	}
 
@@ -82,20 +82,20 @@ public class Carshare {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public String getFromAdress() {
-		return fromAdress;
+	public String getFromAddress() {
+		return fromAddress;
 	}
 
-	public void setFromAdress(String fromAdress) {
-		this.fromAdress = fromAdress;
+	public void setFromAddress(String fromAddress) {
+		this.fromAddress = fromAddress;
 	}
 
-	public String getToAdress() {
-		return toAdress;
+	public String getToAddress() {
+		return toAddress;
 	}
 
-	public void setToAdress(String toAdress) {
-		this.toAdress = toAdress;
+	public void setToAddress(String toAddress) {
+		this.toAddress = toAddress;
 	}
 
 	public Integer getNbSpace() {
@@ -108,8 +108,8 @@ public class Carshare {
 
 	@Override
 	public String toString() {
-		return "Carshare [id=" + id + ", startTime=" + startTime + ", arrivalTime=" + arrivalTime + ", fromAdress="
-				+ fromAdress + ", toAdress=" + toAdress + ", nbSpaces=" + nbSpaces + ", participants=" + participants
+		return "Carshare [id=" + id + ", startTime=" + startTime + ", arrivalTime=" + arrivalTime + ", fromAddress="
+				+ fromAddress + ", toAddress=" + toAddress + ", nbSpaces=" + nbSpaces + ", participants=" + participants
 				+ "]";
 	}
 

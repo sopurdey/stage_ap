@@ -1,10 +1,13 @@
 package fr.diginamic.stage_ap.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Vehicle {
@@ -33,16 +36,16 @@ public class Vehicle {
 	
 	@Column(name = "PHOTO")
 	private String photoUrl;
-
-	@Column(name = "WITH_DRIVER")
-	private boolean withDriver;
+	
+	@OneToMany(mappedBy = "vehicle")
+	private Set<Reservation> reservations;
 
 	public Vehicle() {
 		
 	}
 	
 	public Vehicle(Integer id, String numberPlate, String brand, String model, String category, Integer nbSeats,
-			String status, String photoUrl, boolean withDriver) {
+			String status, String photoUrl) {
 		super();
 		this.id = id;
 		this.numberPlate = numberPlate;
@@ -52,7 +55,6 @@ public class Vehicle {
 		this.nbSeats = nbSeats;
 		this.status = status;
 		this.photoUrl = photoUrl;
-		this.withDriver = withDriver;
 	}
 
 	public Integer getId() {
@@ -119,19 +121,12 @@ public class Vehicle {
 		this.photoUrl = photoUrl;
 	}
 
-	public boolean isWithDriver() {
-		return withDriver;
-	}
-
-	public void setWithDriver(boolean withDriver) {
-		this.withDriver = withDriver;
-	}
 
 	@Override
 	public String toString() {
 		return "Vehicle [id=" + id + ", numberPlate=" + numberPlate + ", brand=" + brand + ", model=" + model
 				+ ", category=" + category + ", nbSeats=" + nbSeats + ", status=" + status + ", photoUrl=" + photoUrl
-				+ ", withDriver=" + withDriver + "]";
+				+ "]";
 	}
 	
 }

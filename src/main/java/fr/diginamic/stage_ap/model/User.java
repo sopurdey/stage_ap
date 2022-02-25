@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User implements UserDetails {
 
@@ -47,8 +49,12 @@ public class User implements UserDetails {
 	@Column(name = "PHONE")
 	private String phone;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private Set<Participant> participants;
+
+	@OneToMany(mappedBy = "user")
+	private Set<Reservation> reservations;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_ROLE")

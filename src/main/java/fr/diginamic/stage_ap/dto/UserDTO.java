@@ -21,11 +21,11 @@ public class UserDTO {
 	private String email;
 
 	private String phone;
-
+	
 	private Set<ParticipantDTO> participants;
 
 	private RoleDTO role;
-
+	
 	public UserDTO() {
 		super();
 	}
